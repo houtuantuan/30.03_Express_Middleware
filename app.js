@@ -3,10 +3,13 @@ const app = express();
 
 const {secure}=require("./middlewares/secureMiddleware")
 
-app.use(secure);
+// app.use(secure);
+console.log("ddd")
 
-app.get('/', secure,(req, res) => res.send('Hello World!'))
+app.get('/verify/:token', secure,(req, res) => {
+   
+    res.send('Hello World!'+req.params.token)
+})
 
-// const {secure}= require("./middlewares/secureMiddleware")
 
 module.exports = app;
